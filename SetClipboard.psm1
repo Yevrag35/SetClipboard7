@@ -83,7 +83,7 @@ Function Copy-FilesToClipboard()
             $filePaths = [System.Collections.Specialized.StringCollection]::new()
             [string[]]$strs = $resolvedProviderPathFromPSPath
             $filePaths.AddRange($strs)
-            $filePaths
+            Write-Debug -Message $("FilePaths:`n{0}" -f $strs -join "`n")
             [System.Windows.Forms.Clipboard]::SetFileDropList($filePaths)
         }
     }
