@@ -57,7 +57,7 @@ PowerShellVersion = '7.0'
 RequiredAssemblies = 'System.Windows.Forms'
 
 # Script files (.ps1) that are run in the caller's environment prior to importing this module.
-# ScriptsToProcess = @()
+ScriptsToProcess = @('Startup.ps1')
 
 # Type files (.ps1xml) to be loaded when importing this module
 # TypesToProcess = @()
@@ -87,7 +87,11 @@ AliasesToExport = @('scb')
 # ModuleList = @()
 
 # List of all files packaged with this module
-# FileList = @()
+FileList = @(
+    'LICENSE',
+    'SetClipboard.psd1',
+    'SetClipboard.psm1'
+)
 
 # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
 PrivateData = @{
@@ -95,13 +99,13 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        # Tags = @()
+        Tags = @('Clipboard', 'Clip', 'Set', 'Windows', 'Core', '7', 'Append', 'Html', 'File', 'List', 'Copy')
 
         # A URL to the license for this module.
-        # LicenseUri = ''
+        LicenseUri = 'https://github.com/Yevrag35/SetClipboard7/blob/master/LICENSE'
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = 'https://github.com/Yevrag35/SetClipboard7.git'
 
         # A URL to an icon representing this module.
         # IconUri = ''
@@ -123,7 +127,7 @@ PrivateData = @{
 } # End of PrivateData hashtable
 
 # HelpInfo URI of this module
-# HelpInfoURI = ''
+HelpInfoURI = 'https://github.com/Yevrag35/SetClipboard7/issues'
 
 # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
 # DefaultCommandPrefix = ''

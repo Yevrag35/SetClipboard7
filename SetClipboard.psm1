@@ -1,8 +1,14 @@
-﻿#Requires -Version 7.0
-#region BACKEND/SUPPORTING FUNCTIONS
+﻿#region BACKEND/SUPPORTING FUNCTIONS
 
-Function Copy-FilesToClipboard([System.Collections.Generic.List[stirng]]$fileList, [bool]$append, [bool]$isLiteralPath)
+Function Copy-FilesToClipboard()
 {
+    [CmdletBinding(PositionalBinding=$false)]
+    param
+    (
+        [System.Collections.Generic.List[string]]$fileList,
+        [bool]$append,
+        [bool]$isLiteralPath
+    )
     [int]$count = 0
     $source = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::OrdinalIgnoreCase)
     if ($append)
@@ -20,20 +26,20 @@ Function Copy-FilesToClipboard([System.Collections.Generic.List[stirng]]$fileLis
         }
     }
 
-    [System.Management.Automation.ProviderInfo]$provider = $null
+    New-Variable -Name "providerInfo" -Option AllScope -Value $null
     for ($i = 0; $i -lt $fileList.Count; $i++)
     {
-        $resolvedProviderPathFromPSPath = New-Object -TypeName '[System.Collections.ObjectModel.Collection[string]]'
+        $resolvedProviderPathFromPSPath = New-Object -TypeName 'System.Collections.ObjectModel.Collection[string]'
         try
         {
             if ($isLiteralPath)
             {
-                $resolvedProviderPathFromPSPath.Add($PSCmdlet.SessionState.Path.GetUnresolvedProviderPathFromPSPath($fileList[$i]))
+                [void]$resolvedProviderPathFromPSPath.Add($PSCmdlet.SessionState.Path.GetUnresolvedProviderPathFromPSPath($fileList[$i]))
             }
             else
             {
 
-                $resolvedProviderPathFromPSPath.Add($PSCmdlet.SessionState.Path.GetResolvedProviderPathFromPSPath($fileList[$i], [ref] $providerInfo))
+                [void]$resolvedProviderPathFromPSPath.Add($PSCmdlet.SessionState.Path.GetResolvedProviderPathFromPSPath($fileList[$i], [ref] $providerInfo))
             }
         }
         catch [System.Management.Automation.ItemNotFoundException]
@@ -44,7 +50,7 @@ Function Copy-FilesToClipboard([System.Collections.Generic.List[stirng]]$fileLis
         {
             if (-not $source.Contains($str2))
             {
-                $source.Add($str2)
+                [void]$source.Add($str2)
             }
         }
     }
@@ -73,9 +79,11 @@ Function Copy-FilesToClipboard([System.Collections.Generic.List[stirng]]$fileLis
 
         if ($PSCmdlet.ShouldProcess($msg, "Set-Clipboard"))
         {
-            [System.Windows.Forms.Clipboard]::Clear()
+            [void][System.Windows.Forms.Clipboard]::Clear()
             $filePaths = [System.Collections.Specialized.StringCollection]::new()
-            $filePaths.AddRange([string[]]$col)
+            [string[]]$strs = $resolvedProviderPathFromPSPath
+            $filePaths.AddRange($strs)
+            $filePaths
             [System.Windows.Forms.Clipboard]::SetFileDropList($filePaths)
         }
     }
@@ -245,7 +253,7 @@ Function Set-ClipboardContent([System.Collections.Generic.List[string]]$contentL
             [System.Windows.Forms.Clipboard]::Clear()
             if ($asHtml)
             {
-                [System.Windows.Forms.Clipboard]::SetText((Script:Get-HtmlDataString -html $builder.ToString()), [System.Windows.Forms.TextDataFormat]::Html)
+                [System.Windows.Forms.Clipboard]::SetText((Get-HtmlDataString -html $builder.ToString()), [System.Windows.Forms.TextDataFormat]::Html)
             }
             else
             {
@@ -287,7 +295,6 @@ Function Set-Clipboard()
     )
     Begin
     {
-        Add-Type -AssemblyName "System.Windows.Forms" -ErrorAction Stop
         $contentList = New-Object -TypeName 'System.Collections.Generic.List[string]'
     }
     Process
