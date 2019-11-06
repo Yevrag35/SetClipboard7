@@ -1,0 +1,492 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>MG.PowerShell.Clipboard</RootNamespace>
+    <AssemblyName>MG.PowerShell.Clipboard</AssemblyName>
+    <Company>Yevrag35, LLC.</Company>
+    <Authors>Mike Garvey</Authors>
+    <Description>A PowerShell module bringing back 'Set-Clipboard' to PowerShell 7 - Sets the current Windows clipboard entry.</Description>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
+    <Version>1.1.0</Version>
+    <PackageProjectUrl>https://github.com/Yevrag35/SetClipboard7</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Yevrag35/SetClipboard7</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.PowerShell.SDK" Version="7.0.0-preview.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\Microsoft.CSharp.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\Microsoft.VisualBasic.Core.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\Microsoft.VisualBasic.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\Microsoft.Win32.Primitives.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\mscorlib.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\netstandard.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.AppContext.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Buffers.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Collections.Concurrent.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Collections.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Collections.Immutable.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Collections.NonGeneric.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Collections.Specialized.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.ComponentModel.Annotations.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.ComponentModel.DataAnnotations.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.ComponentModel.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.ComponentModel.EventBasedAsync.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.ComponentModel.Primitives.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.ComponentModel.TypeConverter.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Configuration.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Console.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Core.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Data.Common.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Data.DataSetExtensions.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Data.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Diagnostics.Contracts.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Diagnostics.Debug.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Diagnostics.DiagnosticSource.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Diagnostics.FileVersionInfo.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Diagnostics.Process.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Diagnostics.StackTrace.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Diagnostics.TextWriterTraceListener.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Diagnostics.Tools.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Diagnostics.TraceSource.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Diagnostics.Tracing.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Drawing.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Drawing.Primitives.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Dynamic.Runtime.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Globalization.Calendars.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Globalization.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Globalization.Extensions.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.IO.Compression.Brotli.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.IO.Compression.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.IO.Compression.FileSystem.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.IO.Compression.ZipFile.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.IO.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.IO.FileSystem.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.IO.FileSystem.DriveInfo.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.IO.FileSystem.Primitives.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.IO.FileSystem.Watcher.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.IO.IsolatedStorage.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.IO.MemoryMappedFiles.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.IO.Pipes.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.IO.UnmanagedMemoryStream.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Linq.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Linq.Expressions.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Linq.Parallel.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Linq.Queryable.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Memory.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Net.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Net.Http.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Net.HttpListener.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Net.Mail.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Net.NameResolution.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Net.NetworkInformation.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Net.Ping.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Net.Primitives.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Net.Requests.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Net.Security.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Net.ServicePoint.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Net.Sockets.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Net.WebClient.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Net.WebHeaderCollection.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Net.WebProxy.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Net.WebSockets.Client.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Net.WebSockets.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Numerics.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Numerics.Vectors.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.ObjectModel.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Reflection.DispatchProxy.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Reflection.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Reflection.Emit.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Reflection.Emit.ILGeneration.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Reflection.Emit.Lightweight.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Reflection.Extensions.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Reflection.Metadata.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Reflection.Primitives.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Reflection.TypeExtensions.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Resources.Reader.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Resources.ResourceManager.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Resources.Writer.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Runtime.CompilerServices.Unsafe.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Runtime.CompilerServices.VisualC.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Runtime.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Runtime.Extensions.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Runtime.Handles.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Runtime.InteropServices.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Runtime.InteropServices.RuntimeInformation.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Runtime.InteropServices.WindowsRuntime.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Runtime.Intrinsics.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Runtime.Loader.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Runtime.Numerics.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Runtime.Serialization.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Runtime.Serialization.Formatters.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Runtime.Serialization.Json.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Runtime.Serialization.Primitives.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Runtime.Serialization.Xml.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Security.Claims.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Security.Cryptography.Algorithms.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Security.Cryptography.Csp.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Security.Cryptography.Encoding.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Security.Cryptography.Primitives.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Security.Cryptography.X509Certificates.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Security.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Security.Principal.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Security.SecureString.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.ServiceModel.Web.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.ServiceProcess.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Text.Encoding.CodePages.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Text.Encoding.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Text.Encoding.Extensions.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Text.Encodings.Web.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Text.Json.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Text.RegularExpressions.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Threading.Channels.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Threading.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Threading.Overlapped.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Threading.Tasks.Dataflow.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Threading.Tasks.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Threading.Tasks.Extensions.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Threading.Tasks.Parallel.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Threading.Thread.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Threading.ThreadPool.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Threading.Timer.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Transactions.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Transactions.Local.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.ValueTuple.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Web.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Web.HttpUtility.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Windows.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Xml.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Xml.Linq.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Xml.ReaderWriter.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Xml.Serialization.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Xml.XDocument.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Xml.XmlDocument.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Xml.XmlSerializer.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Xml.XPath.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\System.Xml.XPath.XDocument.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="C:\Users\Mike\.nuget\packages\microsoft.powershell.sdk\7.0.0-preview.5\contentFiles\any\any\ref\WindowsBase.dll">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <Reference Include="System.Windows.Forms">
+      <HintPath>C:\Program Files\PowerShell\7-preview\System.Windows.Forms.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
