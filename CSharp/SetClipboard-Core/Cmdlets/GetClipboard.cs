@@ -136,7 +136,7 @@ namespace MG.PowerShell
 
     public enum ClipboardFormat
     {
-        Text,
+        //Text,
         FileDropList,
         Image,
         Audio
